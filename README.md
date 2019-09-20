@@ -8,10 +8,12 @@ The cardboard output dimensions still need to be tested and might require adjust
 To use you need to have openSCAD on path and have python 2.7.xx with pycairo module installed (seems to be installed by default on Ubuntu and Raspibian).
 
 The command line looks like this:
+```
 python makebox.py  200x100x48
+```
 
 This creates a box with outside dimensions of 200 x 100 x 48 millimeters.
-
+```
 usage: makebox.py [-h] [--ct CT] [--sd SD] [--bt BT] dimensions
 
 Make a box. This will create the STLs and SVG required to build a box in a
@@ -25,6 +27,6 @@ optional arguments:
   --ct CT     Cardboard thickness
   --sd SD     Slot Depth
   --bt BT     Bracket Thickness
-
+```
 ![Example SimpleBox(s)](https://github.com/schnorea/SimpleBox/blob/master/assets/IMG_3207.jpg?raw=true "Example SimpleBox(s)")
 
