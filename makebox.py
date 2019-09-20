@@ -63,8 +63,8 @@ def parse_box_dimensions(arg_str, inches=False):
 
 if __name__ == "__main__":
 
-    parser = argparse.ArgumentParser(description='Process some integers.')
-    parser.add_argument('--in', action='store_true',help='The dimension values are given in inches')
+    parser = argparse.ArgumentParser(description='Make a box. This will create the STLs and SVG required to build a box in a minimal 3D print fashion.')
+    #parser.add_argument('--in', action='store_true',help='The dimension values are given in inches')
     parser.add_argument('--ct', type=float,help='Cardboard thickness')
     parser.add_argument('--sd', type=float,help='Slot Depth')
     parser.add_argument('--bt', type=float,help='Bracket Thickness')
@@ -72,8 +72,8 @@ if __name__ == "__main__":
                         help='Dimensions in the form of widthxdepthxheight (i.e. 5.2x3.6x9.12)')
     
     args = parser.parse_args()
-    inches =  vars(args)['in']
-    dims = parse_box_dimensions(vars(args)['dimensions'],inches)
+    
+    dims = parse_box_dimensions(vars(args)['dimensions'],False)
     
     if 'ct' in vars(args) and vars(args)['ct'] is not None:
         cardboard_thickness = vars(args)['ct']
