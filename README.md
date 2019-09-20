@@ -13,6 +13,10 @@ python makebox.py  200x100x48
 ```
 
 This creates a box with outside dimensions of 200 x 100 x 48 millimeters.
+
+The tool will maximize the use of cardboard and minimize the 3D printing to be done.
+
+If the box is to large and it can't layout the either the sides or top and bottom on two seperat pages, the program will terminate with an Error. The end caps STLs will still be created. 
 ```
 usage: makebox.py [-h] [--ct CT] [--sd SD] [--bt BT] dimensions
 
@@ -28,5 +32,8 @@ optional arguments:
   --sd SD     Slot Depth
   --bt BT     Bracket Thickness
 ```
+
+There are several improvements and features planned for the future.
+
 ![Example SimpleBox(s)](https://github.com/schnorea/SimpleBox/blob/master/assets/IMG_3207.jpg?raw=true "Example SimpleBox(s)")
 
