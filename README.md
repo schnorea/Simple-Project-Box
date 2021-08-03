@@ -1,4 +1,4 @@
-# SimpleBox
+# Simple Project Box
 OpenSCAD project to create 3d printed end caps for small project boxes that have sides made out of cardboard or other flat stock. The idea was to have the ability to create a low cost box quickly that reused materials that are readily available.
 
 Updated it now generates a pdf file that holds the outline of the cardboard (or what ever sides).
