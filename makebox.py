@@ -2,6 +2,10 @@ import subprocess
 import argparse
 import cairo
 
+# MacOS
+OpenScad_Path = "/Applications/OpenSCAD.app/Contents/MacOS/OpenSCAD"
+
+
 # page dimensions in points (1 point = 1"/72 or 1 mm = 2.83465 points)
 pg_x = 612
 pg_y = 792
@@ -26,7 +30,7 @@ def run(cmd):
 def end_caps(width_x,depth_y,slotdepth=4,bracket_thickness=2,cardboard_thickness=4):
     # openscad -o output.stl -D 'model="input.stl"' test.scad
 
-    cmd = ['openscad','-o','output.stl',
+    cmd = [OpenScad_Path,'-o','output.stl',
     '-D', 'box_width_x={}'.format(width_x),
     '-D', 'box_depth_y={}'.format(depth_y),
     '-D', 'slotdepth={}'.format(slotdepth),
@@ -46,19 +50,19 @@ def parse_box_dimensions(arg_str, inches=False):
     '''Split the box dimensions and put find smallest dimensions first'''
     dims = arg_str.lower().split('x')
     if len(dims) < 3 or len(dims) >3:
-        print "ERROR: Dimensions were either to small or to large",str(dims)
+        print("ERROR: Dimensions were either to small or to large",str(dims))
         exit()
     try:
         dims = [float(a) for a in dims]
     except:
-        print "ERROR: Dimensions has values that aren't able to be converted to floats",str(dims)
+        print("ERROR: Dimensions has values that aren't able to be converted to floats",str(dims))
         exit()
     else:
         dims.sort()
         if (inches):
             # convert to millimeter
             dims = [a * 25.4 for a in dims]
-        #print dims
+        #print(dims)
         return(dims)
 
 if __name__ == "__main__":
@@ -141,7 +145,7 @@ if __name__ == "__main__":
         s_dir_horz = False
     else:
         # won't fit on this size paper in either orientation
-        print "ERROR: sides won't fit on this size paper in either orientation. Not creating SVG."
+        print("ERROR: sides won't fit on this size paper in either orientation. Not creating SVG.")
         exit()
 
         
@@ -159,7 +163,7 @@ if __name__ == "__main__":
         rec_1 = [18,18,ptb_y,ptb_x]
         rec_2 = [(18 + 1.01 * ptb_y),18,ptb_y,ptb_x]
     else:
-        print "ERROR: top and bottom won't fit on this size paper in any orientation. Not creating SVG."
+        print("ERROR: top and bottom won't fit on this size paper in any orientation. Not creating SVG.")
         exit()
         
         
